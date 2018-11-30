@@ -1,0 +1,36 @@
+// IE 9 / 10
+@media screen and (min-width: 0\0) {
+  // Y轴滚动条
+  @mixin scrll {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin-right: -17px;
+  }
+
+  aside.g-side {
+    padding-bottom: 50px;
+    > .el-menu {
+      overflow: hidden;
+      &::-webkit-scrollbar,
+      &::-webkit-scrollbar-track-piece {
+        width: 0 !important;
+      }
+    }
+  }
+  aside.g-side.is-extend > .el-menu {
+    @include scrll;
+    width: $g-side-max-width + 17px;
+
+    &.el-menu--collapse .el-submenu__icon-arrow.el-icon-arrow-down {
+      top: 26px;
+    }
+  }
+}
+
+// 修复IE下侧栏滑动图标被隐藏问题
+header.g-head .btn.u-collapse i {
+  margin-left: -($g-head-height / 2)\9\0;
+  @media screen and(-ms-high-contrast:active), (-ms-high-contrast:none) {
+    margin-left: -($g-head-height / 2);
+  }
+}
